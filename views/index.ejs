@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Anna</title>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Anna</h1>
+    <div id="messages">
+    </div>
+    <input type="text" id="text" placeholder="type and hit enter to submit" />
+  </body>
+  <script>
+    var socket = io.connect('http://localhost:3000');
+
+    $input = $('#text');
+    $input.on('keypress', function (e) {
+      if (e.which == 13) {
+        socket.emit('sendMessage', {
+          message: $input.val()
+        }, function(res) {
+          console.log(res);
+        });
+      }
+    });
+  </script>
+</html>
