@@ -2,6 +2,8 @@ var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
+var twilio = require('twilio');
+var client = require('twilio')('ACb6a7631dfbba4712b32319a03aa270d7', '6a710ad22d178a7670405f07f71cc632');
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
@@ -22,6 +24,16 @@ app.configure('development', function(){
 
 var routes = require('./routes');
 app.get('/', routes.index);
+app.post('/sms', function (req, res) {
+  console.log(req);
+  io.sockets.emit('newMessage', {
+    user: 'user',
+    number: 'test',
+    body: 'test'
+  });
+
+  res.end();
+});
 
 server.listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
@@ -29,6 +41,13 @@ server.listen(app.get('port'), function(){
 
 io.sockets.on('connection', function (socket) {
   socket.on('sendMessage', function (data, callback) {
-    callback(data);
+    client.sendSms({
+      to: '+17814924545',
+      from: '+16466062561',
+      body: data.body
+    }, function (err, res) {
+      if (!err)
+        return callback(data);
+    });
   });
 });

@@ -9,6 +9,7 @@
     "express": "3.0.0beta6",
     "ejs": "*",
     "less-middleware": "*",
-    "socket.io": "~0.9.13"
+    "socket.io": "~0.9.13",
+    "twilio": "~0.8.0"
   }
 }

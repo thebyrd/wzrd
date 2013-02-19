@@ -9,6 +9,12 @@
   <body>
     <h1>Anna</h1>
     <div id="messages">
+      <% for (var i = 0; i < messages.length; i++) { %>
+        <% var message = messages[i] %>
+        <div class="message <%=message.user%>">
+          <div class="text"><%=message.body%></div>
+        </div>
+      <% } %>
     </div>
     <input type="text" id="text" placeholder="type and hit enter to submit" />
   </body>
@@ -19,11 +25,18 @@
     $input.on('keypress', function (e) {
       if (e.which == 13) {
         socket.emit('sendMessage', {
-          message: $input.val()
+          body: $input.val()
         }, function(res) {
-          console.log(res);
+          $('#messages').append('<div class="message anna"><div class="text">' + $input.val() + '</div></div>');
+
+          $input.val('');
         });
       }
     });
+
+    socket.on('newMessage', function(data) {
+      console.log(data);
+      $('#messages').append('<div class="message user"><div class="text">' + data.body + '</div></div>');
+    })
   </script>
 </html>
