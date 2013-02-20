@@ -185,8 +185,8 @@ io.sockets.on('connection', function (socket) {
           from: '+14085123133',
           body: data.body
         }, function (err, res) {
-          if (!err)
-            return callback(data);
+          if (err) throw err;
+          else return callback(data);
         });
 
       })
