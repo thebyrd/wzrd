@@ -14,8 +14,10 @@ body {
 #messages {
   height: 500px;
 }
-#text {
-  position: relative;
-  left: 50%;
-  margin-left: -200px;
+#messages .right {
+  text-align: right;
+}
+.container {
+  margin: 20px auto;
+  width: 400px;
 }
