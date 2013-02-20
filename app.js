@@ -11,7 +11,7 @@ app.configure(function(){
     io.set("transports", ["xhr-polling"]); 
     io.set("polling duration", 10); 
   });
-  app.set('port', process.env.PORT || 3000);
+  app.set('port', process.env.PORT || 3001);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'ejs');
   mongoose.connect(process.env.MONGOHQ_URL || 'mongodb://localhost/annaChatDev');

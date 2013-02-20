@@ -1,9 +1,29 @@
-<form action="/users" method="POST">
-  <label for="name">Name</label>
-  <input name="name" type="text" required>
-  <label for="email">Email</label>
-  <input name="email" type="text" required>
-  <label for="digits">Phone Number</label>
-  <input name="digits" type="tel">
-  <input type="submit" value="Sign Up!" required>
-</form>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Anna</title>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div class="container">
+      <form action="/users" method="POST">
+        <legend>Sign Up</legend>
+        <div class="field">
+          <label for="name">Name :</label>
+          <input name="name" type="text" required>
+        </div>
+        <div class="field">
+          <label for="email">Email :</label>
+          <input name="email" type="text" required>
+        </div>
+        <div class="field">
+          <label for="digits">Cell # :</label>
+          <input name="digits" type="tel">
+        </div>
+        <input type="submit" value="Sign Up!" required>
+      </form>
+    </div>
+</body>
+</html>
