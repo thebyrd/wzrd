@@ -143,20 +143,27 @@ app.post('/sms', function (req, res) {
 
   User.findOne({ digits:req.body.From }, function (err, user) {
     if (err) throw err;
-
-    var m = new Message({
-      from: user._id,
-      to: anna._id,
-      body: req.body.Body
-    });
-
-    m.save(function (err, msg) {
-      io.sockets.emit('newMessage', {
-        user: user.name,
-        number: user.digits,
+    if (user) {
+      var m = new Message({
+        from: user._id,
+        to: anna._id,
         body: req.body.Body
       });
-    });
+
+      m.save(function (err, msg) {
+        io.sockets.emit('newMessage', {
+          user: user.name,
+          number: user.digits,
+          body: req.body.Body
+        });
+      });
+    } else {
+      client.sendSms({
+        to: rea.body.From,
+        from: '+16466062561',
+        body: 'Hey, It\'s Anna, I\'m a little busy right now trying to handle Kim Pham\'s shit. I\'ll text you later. xoxo'
+      })
+    }
 
   });
 
