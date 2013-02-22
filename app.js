@@ -1,3 +1,11 @@
+//       _                                           _   
+//      / \                                         (_)  
+//     / _ \     _ .--.   _ .--.   ,--.      ,--.   __   
+//    / ___ \   [ `.-. | [ `.-. | `'_\ :    `'_\ : [  |  
+//  _/ /   \ \_  | | | |  | | | | // | |, _ // | |, | |  
+// |____| |____|[___||__][___||__]\'-;__/(_)\'-;__/[___] 
+// A raging bitch created by Vivek, Steve & David.
+
 var express = require('express'),
     app = express(),
     server = require('http').createServer(app),
