@@ -127,7 +127,7 @@ app.get('/thanks!', function (req, res) {
   var number = req.query.number;
   client.sendSms({
     to: number,
-    from: '+14085123133',
+    from: '+16466062561',
     body: 'Hey Girl! I\'m Anna, your personal assistant. Let me know if you need me to book any appointments or setup meetings.'
   }, function (err, other) {
     console.log(err);
@@ -182,11 +182,13 @@ io.sockets.on('connection', function (socket) {
 
         client.sendSms({
           to: user.digits,
-          from: '+14085123133',
+          from: '+16466062561',
           body: data.body
         }, function (err, res) {
-          if (err) throw err;
-          else return callback(data);
+          if (err) {
+            console.log(JSON.stringify(err));
+            throw err;
+          } else return callback(data);
         });
 
       })
