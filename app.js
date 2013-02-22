@@ -3,7 +3,7 @@ var express = require('express'),
     server = require('http').createServer(app),
     io = require('socket.io').listen(server),
     twilio = require('twilio'),
-    client = twilio('AC2dd686b98668c9c8a2893ccc52e61d74', '37a46faa9fef4a03d9c1a1babe57b733'),
+    client = twilio('ACb6a7631dfbba4712b32319a03aa270d7', '6a710ad22d178a7670405f07f71cc632'),
     mongoose = require('mongoose');
 
 app.configure(function(){
@@ -74,7 +74,7 @@ var User = mongoose.model('User', new mongoose.Schema ({
 var anna = new User({
   name: 'Anna Jenkins',
   email: 'hello@anna.ai',
-  digits: '+14085123133'
+  digits: '+16466062561'
 });
 anna.save(function (err, anna) {
   if (err) throw err;
