@@ -1,10 +1,31 @@
 {
-  "name": "application-name",
-  "version": "0.0.1",
-  "private": true,
+  "name": "wzrd",
+  "version": "0.0.2",
+  "author": "David Byrd <david@byrdhou.se",
+  "description": "Out of the Box solution for Wizard of Oz Experiments",
+  "contributors":[
+    {
+      "name": "Steve Kaliski",
+      "email": "sjkaliski@gmail.com"
+    }
+  ],
   "scripts": {
-    "start": "node app"
+    "start": "NODE_ENV=production node ./app"
   },
+  "main": {
+    "./app"
+  },
+  "repository":{
+    "type": "git",
+    "url": "https://github.com/davidbyrd11/wzrd.git"
+  },
+  "keywords":[
+    "wizard",
+    "wzrd",
+    "usability",
+    "ai",
+    "machine learning"
+  ],
   "engines": {
     "node": ">=0.6.0 <0.9",
     "npm": "1.1.x"
@@ -18,5 +39,7 @@
     "mongoose": "~3.5.7",
     "connect-redis": "~1.4.5",
     "redis": "~0.8.2"
-  }
+  },
+  "license": "MIT",
+  "subdomain": "wzrd"
 }

@@ -7,6 +7,5 @@ Go into `/config/constants.js` and add your twillio, mongo, & redis credentials.
 Then deploy to heroku with `heroku apps:create` and `git push heroku master`.
 
 ## TODO
-1. Create a seeds file that will create anna if she does not exist
-2. Put Socket.io in the controllers
-3. Put everything in the configs file
+1. Change Branding to WZRD
+2. Test on Node jitsu
