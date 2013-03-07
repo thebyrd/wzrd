@@ -67,12 +67,12 @@ module.exports = function (app, config) {
         }
       });
     }
-    
+
     /**
      * Renders form for creating a new user.
      */
   , new: function (req, res) {
-      res.render('users/new');
+      res.render('users/new', { title: 'New User' });
     }
 
   };
