@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div class="container">
+      <h1><%= title %></h1>
+      <div id="messages">
+        <% for (var i = 0; i < messages.length; i++) { %>
+          <% var message = messages[i] %>
+          <div class="message <% if (message.from._id != user._id) { %> right <% } else { %> left <% } %>">
+            <div class="text"><%=message.body%></div>
+          </div>
+        <% } %>
+      </div>
+      <input type="text" id="text" placeholder="type and hit enter to submit" />
+      <a href="/users">&larr; Back to Users</a>
+    </div>
+  </body>
+  <script>
+    var socket = io.connect('<%= url %>');
+
+    $input = $('#text');
+    $input.on('keypress', function (e) {
+      if (e.which == 13) {
+        socket.emit('sendMessage', {
+          body: $input.val(),
+          email: "<%= user.email %>"
+        }, function(res) {
+          $('#messages').append('<div class="message right"><div class="text">' + $input.val() + '</div></div>');
+
+          $input.val('');
+        });
+      }
+    });
+
+    socket.on('newMessage', function(data) {
+      console.log(data);
+      $('#messages').append('<div class="message user"><div class="text">' + data.body + '</div></div>');
+    })
+  </script>
+</html>

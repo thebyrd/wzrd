@@ -15,6 +15,8 @@
     "less-middleware": "*",
     "socket.io": "~0.9.13",
     "twilio": "~0.7.1",
-    "mongoose": "~3.5.6"
+    "mongoose": "~3.5.7",
+    "connect-redis": "~1.4.5",
+    "redis": "~0.8.2"
   }
 }
