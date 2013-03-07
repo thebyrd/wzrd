@@ -23,7 +23,7 @@ module.exports = {
   production: {
     db: {
       mongoUrl: process.env.MONGOHQ_URL,
-      redisUrl: process.env.REDISCLOUD_URL
+      redisUrl: process.env.REDISTOGO_URL
     },
     twillio: {
       number: '+14084578863',
