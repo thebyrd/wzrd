@@ -7,11 +7,11 @@ module.exports = function (app) {
       'get': 'users.index',
       'post': 'users.create'
     },
-    '/users/:email': {
-      'get': 'users.show'
-    },
     '/users/new': {
       'get': 'users.new'
+    },
+    '/users/:email': {
+      'get': 'users.show'
     },
     '/sms': {
       'post': 'sms.receive'
