@@ -19,28 +19,6 @@ module.exports = function (app, config) {
         }
       });
     }
-  
-  /**
-   * Shows the chat between Anna & a specific user.
-   */
-  , show: function (req, res) {
-      User.findOne({ email: req.params.email }, function (err, user) {
-        if (err) throw err;
-        if (user) {
-          Message.find({ $or: [{from: user._id}, {to: user._id}] }).populate('from').exec(function (error, messages) {
-            if (error) throw error;
-            res.render('users/show', {
-              title: 'Wizard vs ' + user.name,
-              user: user,
-              messages: messages,
-              url: config.url
-            });
-          })
-        } else {
-          res.send('user does not exist');
-        }
-      });
-    }
 
   /**
    * Creates a new user.
@@ -68,6 +46,28 @@ module.exports = function (app, config) {
       });
     }
 
+  /**
+   * Shows the chat between Anna & a specific user.
+   */
+  , show: function (req, res) {
+      User.findOne({ email: req.params.email }, function (err, user) {
+        if (err) throw err;
+        if (user) {
+          Message.find({ $or: [{from: user._id}, {to: user._id}] }).populate('from').exec(function (error, messages) {
+            if (error) throw error;
+            res.render('users/show', {
+              title: 'Wizard vs ' + user.name,
+              user: user,
+              messages: messages,
+              url: config.url
+            });
+          })
+        } else {
+          res.send('user does not exist');
+        }
+      });
+    }
+    
     /**
      * Renders form for creating a new user.
      */
