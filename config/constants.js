@@ -6,7 +6,7 @@ module.exports = {
     },
     twillio: {
       number: '+14084578863',
-      key: 'AC2dd686b98668c9c8a2893ccc52e61d74',
+      key: 'AP1a71a9fa6b4fc96ef4e40a5d353cbc88',
       secret: '37a46faa9fef4a03d9c1a1babe57b733'
     },
     auth: {
@@ -27,7 +27,7 @@ module.exports = {
     },
     twillio: {
       number: '+14084578863',
-      key: 'AC2dd686b98668c9c8a2893ccc52e61d74',
+      key: 'AP1a71a9fa6b4fc96ef4e40a5d353cbc88',
       secret: '37a46faa9fef4a03d9c1a1babe57b733'
     },
     auth: {
