@@ -1,25 +1,22 @@
 {
   "name": "wzrd",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "David Byrd <david@byrdhou.se",
   "description": "Out of the Box solution for Wizard of Oz Experiments",
-  "contributors":[
+  "contributors": [
     {
       "name": "Steve Kaliski",
       "email": "sjkaliski@gmail.com"
     }
   ],
   "scripts": {
-    "start": "NODE_ENV=production node ./app"
+    "start": "node app.js"
   },
-  "main": {
-    "./app"
-  },
-  "repository":{
+  "repository": {
     "type": "git",
     "url": "https://github.com/davidbyrd11/wzrd.git"
   },
-  "keywords":[
+  "keywords": [
     "wizard",
     "wzrd",
     "usability",
