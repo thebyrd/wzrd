@@ -18,7 +18,7 @@ module.exports = function (app, config) {
       var w = new User({
         name: config.wizard.name,
         email: config.wizard.email,
-        digits: config.twillio.number
+        digits: config.twilio.number
       });
       w.save(function (err) {
         if (err) throw err;
@@ -45,7 +45,7 @@ module.exports = function (app, config) {
 
           app.get('twilio').sendSms({
             to: user.digits,
-            from: config.twillio.number,
+            from: config.twilio.number,
             body: data.body
           }, function (err, res) {
             if (err) {
@@ -86,7 +86,7 @@ module.exports = function (app, config) {
         } else {
           app.get('twilio').sendSms({
             to: rea.body.From,
-            from: config.twillio.number,
+            from: config.twilio.number,
             body: 'Hey, It\'s Anna, I\'m a little busy right now trying to handle Kim Pham\'s shit. I\'ll text you later. xoxo'
           })
         }

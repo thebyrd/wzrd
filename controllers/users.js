@@ -36,7 +36,7 @@ module.exports = function (app, config) {
         } else {
           app.get('twilio').sendSms({
             to: user.digits,
-            from: config.twillio.number,
+            from: config.twilio.number,
             body: config.wizard.welcomeMessage
           }, function (err, other) {
             console.log(err);

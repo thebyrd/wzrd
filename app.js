@@ -17,7 +17,7 @@ var express = require('express'),
     server = http.createServer(app),
     io = socket.listen(server),
     twilio = require('twilio'),
-    twilioClient = twilio(config.twillio.key, config.twillio.secret);
+    twilioClient = twilio(config.twilio.key, config.twilio.secret);
     
 
 app.configure(function () {
