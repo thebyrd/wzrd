@@ -11,9 +11,9 @@
       <h1>Anna</h1>
       <div id="messages">
         <% for (var i = 0; i < messages.length; i++) { %>
-          <% var message = messages[i] %>
+          <% var message = messages[i]; %>
           <div class="message <% if (message.from._id != user._id) { %> right <% } else { %> left <% } %>">
-            <div class="text"><%=message.body%></div>
+            <div class="text"><%= message.body %></div>
           </div>
         <% } %>
       </div>
