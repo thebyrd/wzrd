@@ -4,7 +4,7 @@ WZRD is an out of the box solution for performing a [WOOT](http://en.wikipedia.o
 ## Setup
 Go into `/config/constants.js` and add your twilio, mongo, & redis credentials. Also swap out default messages.
 
-Then deploy to heroku with `heroku apps:create` and `git push heroku master`. It is also compatible with nodejitsu with 'jitsu deploy'.
+Then deploy to heroku with `heroku apps:create` and `git push heroku master`. It is also compatible with nodejitsu with `jitsu deploy`.
 
 ## TODO
 1. Change Branding to WZRD
