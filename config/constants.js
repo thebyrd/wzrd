@@ -39,6 +39,6 @@ module.exports = {
       email: 'hi@anna.ai',
       welcomeMessage: 'Hey Girl! I\'m Anna, your personal assistant. Let me know if you need me to book any appointments or setup meetings.'
     },
-    url: 'http://anna-chat.herokuapp.com'
+    url: 'http://wzrd.nodejitsu.com'
   }
 };
