@@ -58,8 +58,7 @@ module.exports = function (app, config) {
             res.render('users/show', {
               title: 'Wizard vs ' + user.name,
               user: user,
-              messages: messages,
-              url: config.url
+              messages: messages
             });
           })
         } else {
