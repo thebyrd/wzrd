@@ -2,7 +2,8 @@ module.exports = function (app, config) {
   var m = app.get('models'),
       User = m.user,
       Message = m.message,
-      wizard = {};
+      wizard = {},
+      io = app.get('io')
 
 
 
@@ -25,6 +26,41 @@ module.exports = function (app, config) {
       })
     }
   });
+
+
+
+
+  io.sockets.on('connection', function (socket) {
+    socket.on('sendMessage', function (data, callback) {
+
+      User.findOne({ email: data.email }, function (err, user) {
+
+        var m = new Message({
+          from: wizard._id,
+          to: user._id,
+          body: data.body
+        });
+
+        m.save(function (err, msg) {
+
+          app.get('twilio').sendSms({
+            to: user.digits,
+            from: config.twilio.number,
+            body: data.body
+          }, function (err, res) {
+            if (err) {
+              console.log(JSON.stringify(err));
+              throw err;
+            } else return callback(data);
+          });
+
+        })
+      });
+
+    });
+  });
+
+
 
   var SmsController = {
     /**

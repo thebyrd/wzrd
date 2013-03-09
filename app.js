@@ -99,30 +99,3 @@ for (var route in routes) {
 server.listen(app.get('port'), function(){
   console.log('The Wizard of Oz is serving requests on port ' + app.get('port'));
 });
-
-io.sockets.on('connection', function (socket) {
-  socket.on('sendMessage', function (data, callback) {
-    app.get('models').user.findOne({ email: data.email }, function (err, user) {
-      var m = new Message({
-        from: wizard._id,
-        to: user._id,
-        body: data.body
-      });
-
-      m.save(function (err, msg) {
-
-        app.get('twilio').sendSms({
-          to: user.digits,
-          from: config.twilio.number,
-          body: data.body
-        }, function (err, res) {
-          if (err) {
-            console.log(JSON.stringify(err));
-            throw err;
-          } else return callback(data);
-        });
-
-      })
-    });
-  });
-});
