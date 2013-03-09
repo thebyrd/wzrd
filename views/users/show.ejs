@@ -21,7 +21,7 @@
     </div>
   </body>
   <script>
-    var socket = io.connect("'" + window.location.origin + "'");
+    var socket = io.connect(window.location.origin.toString());
 
     $input = $('#text');
     $input.on('keypress', function (e) {
